@@ -29,7 +29,7 @@ public class TileListener implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         tile.setText("x");
         display.board.place('x', tile.i, tile.j);
-        if (display.board.checkTerminalState() == 10) {
+        if (display.board.checkTerminalState() == -10) {
             System.out.println("X win!");
         }
         if (!display.board.isMovesLeft()) {
@@ -39,7 +39,7 @@ public class TileListener implements ActionListener {
         Move move = findBestMove(display.board);
         display.board.place('o', move.getI(), move.getJ());
         display.placeTile('o', move.getI(), move.getJ());
-        if (display.board.checkTerminalState() == -10) {
+        if (display.board.checkTerminalState() == 10) {
             System.out.println("O win!");
         }
     }

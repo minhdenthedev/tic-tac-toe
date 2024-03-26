@@ -18,7 +18,9 @@ public class Minimax {
         if (score == -10) {
             return -10;
         }
-        if (!board.isMovesLeft()) return 0;
+        if (board.isMovesLeft() == false) {
+            return 0;
+        }
         
         if (isMaximizer) {
             int bestValue = -1000;
@@ -45,7 +47,6 @@ public class Minimax {
                     }
                 }
             }
-            System.out.println("Best value: " + bestValue);
             return bestValue;
         }
     }
@@ -60,7 +61,6 @@ public class Minimax {
                     int value = minimax(board, 0, false);
                     board.unPlace(i, j);
                     if (value > bestValue) {
-                        System.out.println("Best value: " + value);
                         bestValue = value;
                         bestMove[0] = i;
                         bestMove[1] = j;
